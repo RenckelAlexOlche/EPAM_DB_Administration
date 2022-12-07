@@ -1,0 +1,72 @@
+-- PART 3 – MongoDB
+
+-- 17. Create a database. Use the use command to connect to a new database (If it 
+doesn't exist, Mongo will create it when you write to it).
+-- 18. Create a collection. Use db.createCollection to create a collection. I'll leave the 
+subject up to you. Run show dbs and show collections to view your database and 
+collections.
+-- 19. Create some documents. Insert a couple of documents into your collection. I'll 
+leave the subject matter up to you, perhaps cars or hats.
+-- 20. Use find() to list documents out.
+
+admin> use stableV2_1DB       #There is no “create” command in the MongoDB Shell. In order to create a database, you will first need
+                              to switch the context to a non-existing database using the use command:
+switched to db stableV2_1DB
+stableV2_1DB> show dbs
+admin   172.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+stableV2_1DB> db.user.insert({name: "Ada Lovelace", age: 205})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("639104d445e9269d391967d2") }
+}
+stableV2_1DB> show dbs
+admin         172.00 KiB
+config        108.00 KiB
+local          72.00 KiB
+stableV2_1DB    8.00 KiB
+stableV2_1DB>  db.user.find()
+[
+  {
+    _id: ObjectId("639104d445e9269d391967d2"),
+    name: 'Ada Lovelace',
+    age: 205
+  }
+]
+stableV2_1DB> use admin
+switched to db admin
+admin> show dbs
+admin         172.00 KiB
+config        108.00 KiB
+local          72.00 KiB
+stableV2_1DB   40.00 KiB
+admin> db.Sample.find()
+[
+  {
+    _id: ObjectId("6391024c45e9269d391967d1"),
+    SampleValue1: 255,
+    SampleValue2: 'randomStringOfText'
+  }
+]
+admin> use game_of_future_stable_V2_2_DB
+switched to db game_of_future_stable_V2_2_DB
+game_of_future_stable_V2_2_DB> db.AI_persons_First_Tier_v1_2.insert({name: "Rick Novograts", age: 307})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("639109a045e9269d391967d3") }
+}
+game_of_future_stable_V2_2_DB> show dbs
+admin                          172.00 KiB
+config                         108.00 KiB
+game_of_future_stable_V2_2_DB    8.00 KiB
+local                           72.00 KiB
+stableV2_1DB                    40.00 KiB
+game_of_future_stable_V2_2_DB> db.AI_persons_First_Tier_v1_2.find()
+[
+  {
+    _id: ObjectId("639109a045e9269d391967d3"),
+    name: 'Rick Novograts',
+    age: 307
+  }
+]

@@ -1,0 +1,20 @@
+PART 2
+
+-- 10.Make backup of your database.
+
+sudo mysqldump -u root -p employees_DB > empl_DB_backUp.sql
+
+-rw-rw-r--.  1 alex alex   5189 Dec  4 20:00 empl_DB_backUp.sql
+
+-- 11.Delete the table and/or part of the data in the table.
+-- 12.Restore your database.
+
+ Restore MySQL Dump
+mysql -u root -p employees_DB < empl_DB_backUp.sql
+
+-- 13.Transfer your local database to RDS AWS.
+-- 14.Connect to your database.
+-- 15.Execute SELECT operator similar step 6.
+-- 16.Create the dump of your database.
+
+AWS Cloud Quest!!!
